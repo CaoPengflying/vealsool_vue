@@ -66,10 +66,7 @@ axios.interceptors.response.use(
 class API {
   constructor () {
     //设置请求地址
-    // this.BASE_URL= 'http://erp.mclon.com';
-    this.BASE_URL = 'http://cs.mclon.com'
-    this.MOCK_BASE_URL = 'http://47.99.94.15:9090/mock/19'
-    this.LOCAL_BASE_URL = 'http://localhost:52388/'
+    this.LOCAL_BASE_URL = 'http://localhost:8082/'
     //设置头部信息
     this.headers = {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -83,7 +80,7 @@ class API {
 
   //公布是否是真实环境的方法
   IsRealenvironment () {
-    return this.BASE_URL === 'http://erp.mclon.com'
+    return this.BASE_URL === ''
   }
 
   //获取真实路径

@@ -11,9 +11,9 @@ export default new Router({
       component: () => import('./views/home.vue'),
       children: [
         {
-          path: '/activityManage',
-          name: 'activityManage',
-          component: () => import('./views/activityManage.vue')
+          path: '/attendanceManage',
+          name: 'attendanceManage',
+          component: () => import('./views/attendanceManage.vue')
           // children: [{
           //   path: '/activityManage/activityDetail',
           //   name: 'activityDetail',
@@ -29,6 +29,11 @@ export default new Router({
           path: '/gradeManage',
           name: 'gradeManage',
           component: () => import('./views/gradeManage.vue')
+        },
+        {
+          path: '/ruleManage',
+          name: 'ruleManage',
+          component: () => import('./views/ruleManage.vue')
         }
       ]
     },

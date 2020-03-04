@@ -24,7 +24,7 @@
                 </FormItem>
             </Form>
         </Modal>
-        <!--修改弹窗-->
+        <!--新增弹窗-->
         <Modal
                 v-model="addGradeModal"
                 title="班级信息"
@@ -50,6 +50,7 @@
       return {
         formValidate1: {
           gradeNoEdit: '',
+          gradeIdEdit: '',
           gradeNameEdit: ''
         },
         formValidate: {
@@ -132,19 +133,22 @@
       editGrade () {
         let url = this.CommonUtil.LOCAL_BASE_URL + 'grade/update'
         let params = {
-          gradeId: this.formValidate1.gradeIdEdit,
+          id: this.formValidate1.gradeIdEdit,
           gradeNo: this.formValidate1.gradeNoEdit,
           gradeName: this.formValidate1.gradeNameEdit
         }
-        let paramFormData = new FormData()
-        paramFormData.append('jsonObject', JSON.stringify(params))
         this.$http({
           url: url,
           method: 'post',
-          data: paramFormData,
+          data: params,
           withCredentials: true,//表示跨域请求时是否需要使用凭证
         }).then(res => {
-          this.$Message.info(res.data.text);
+          console.log(res);
+          if(res.data.status === '00000'){
+            this.$Message.info(res.data.text);
+          }else{
+            this.$Message.error(res.data.text);
+          }
           // this.$router.go(0);
           this.reload();
         })
@@ -159,7 +163,7 @@
       showEditGradeModal (params) {
         this.formValidate1.gradeNoEdit = params.row.gradeNo
         this.formValidate1.gradeNameEdit = params.row.gradeName
-        this.formValidate1.gradeIdEdit = params.row.gradeId
+        this.formValidate1.gradeIdEdit = params.row.id
         this.editGradeModal = true
       },
       /**
@@ -217,15 +221,12 @@
     mounted () {
       let url = this.CommonUtil.LOCAL_BASE_URL + 'grade/list'
       let params = {}
-      let paramFormData = new FormData()
-      paramFormData.append('jsonObject', JSON.stringify(params))
       this.$http({
         url: url,
-        method: 'post',
-        data: paramFormData,
+        method: 'get',
+        data: params,
         withCredentials: true,//表示跨域请求时是否需要使用凭证
       }).then(res => {
-
         this.gradeList = res.data.t
       })
     }

@@ -19,9 +19,13 @@
       <Layout>
         <Sider ref="side1" hide-trigger collapsible :collapsed-width="78" v-model="isCollapsed">
           <Menu active-name="1-1" theme="dark" width="auto" :class="menuitemClasses">
-            <MenuItem name="1-1" to="/activityManage">
+            <MenuItem name="1-1" to="/attendanceManage">
               <Icon type="ios-navigate"></Icon>
-              <span>活动管理</span>
+              <span>考勤管理</span>
+            </MenuItem>
+            <MenuItem name="1-1" to="/ruleManage">
+              <Icon type="ios-navigate"></Icon>
+              <span>奖惩管理</span>
             </MenuItem>
             <MenuItem name="1-2" to="/studentManage">
               <Icon type="ios-search"></Icon>
@@ -39,7 +43,7 @@
           </div>
         </Content>
       </Layout>
-      <Footer class="footer">2018-2019 &copy; 投票  v0.0.1</Footer>
+      <Footer class="footer">2018-2019 &copy; 学分统计与分析系统  v0.0.1</Footer>
     </Layout>
   </div>
 </template>
