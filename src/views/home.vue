@@ -23,15 +23,15 @@
               <Icon type="ios-navigate"></Icon>
               <span>考勤管理</span>
             </MenuItem>
-            <MenuItem name="1-1" to="/ruleManage">
-              <Icon type="ios-navigate"></Icon>
+            <MenuItem name="1-2" to="/ruleManage">
+              <Icon type="ios-heart"></Icon>
               <span>奖惩管理</span>
             </MenuItem>
-            <MenuItem name="1-2" to="/studentManage">
+            <MenuItem name="1-3" to="/studentManage">
               <Icon type="ios-search"></Icon>
               <span>学生管理</span>
             </MenuItem>
-            <MenuItem name="1-3" to="/gradeManage">
+            <MenuItem name="1-4" to="/gradeManage">
               <Icon type="ios-settings"></Icon>
               <span>班级管理</span>
             </MenuItem>
