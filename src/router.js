@@ -6,19 +6,14 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '/home',
       name: 'home',
       component: () => import('./views/home.vue'),
       children: [
         {
-          path: '/activityManage',
-          name: 'activityManage',
-          component: () => import('./views/activityManage.vue')
-          // children: [{
-          //   path: '/activityManage/activityDetail',
-          //   name: 'activityDetail',
-          //   component: () => import('./views/activityDetail.vue')
-          // }]
+          path: '/attendanceManage',
+          name: 'attendanceManage',
+          component: () => import('./views/attendanceManage.vue')
         },
         {
           path: '/studentManage',
@@ -29,8 +24,46 @@ export default new Router({
           path: '/gradeManage',
           name: 'gradeManage',
           component: () => import('./views/gradeManage.vue')
+        },
+        {
+          path: '/ruleManage',
+          name: 'ruleManage',
+          component: () => import('./views/ruleManage.vue')
+        },
+        {
+          path: '/studentCreditsFlowManage',
+          name: 'studentCreditsFlowManage',
+          component: () => import('./views/studentCreditsFlowManage.vue')
+        },
+        {
+          path: '/studentFileManage',
+          name: 'studentFileManage',
+          component: () => import('./views/studentFileManage.vue')
+        },
+        {
+          path: '/userManage',
+          name: 'userManage',
+          component: () => import('./views/userManage.vue')
+        },
+        {
+          path: '/calcRuleManage',
+          name: 'calcRuleManage',
+          component: () => import('./views/calcRuleManage.vue')
+        },
+        {
+          path: '/studentScoreManage',
+          name: 'studentScoreManage',
+          component: () => import('./views/studentScoreManage.vue')
         }
       ]
-    },
+    },{
+      path: '/',
+      name: 'login',
+      component: () => import('./views/login.vue'),
+    },{
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/login.vue'),
+    }
   ]
 })
